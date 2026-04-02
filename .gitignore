@@ -1,0 +1,12 @@
+# Windows junk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# PHP/Server junk
+.phpunit.result.cache
+logs/
+*.log
+
+# VS Code junk
+.vscode/
