@@ -10,3 +10,8 @@ logs/
 
 # VS Code junk
 .vscode/
+
+# Office Temporary Files
+~$*
+.~lock.*
+*.tmp
