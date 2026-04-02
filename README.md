@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FlyDreamAir: Lounge Management System
 **CSIT214 IT Project Management | Group T18**
 
@@ -54,3 +55,7 @@ Development of a centralized software system to manage global airline lounges. K
 1.  **Version Control:** All "Final Drafts" must be pushed to this repository. Emails are for drafts; GitHub is for the record.
 2.  **Commit Messages:** Please use descriptive labels (e.g., `docs: updated risk register` or `ui: added login wireframe`).
 3.  **Conflict Resolution:** Any disputes regarding scope or technical direction will be escalated to the Project Sponsor (Tutor) as per the Communication Plan.
+=======
+# FlyDreamAir
+Respository for CSIT214 IT Project Management group project
+>>>>>>> c83c1caf52ee91ce915bc7a5b84a572b84702362
