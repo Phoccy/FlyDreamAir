@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlyDreamAir - Login</title>
+    <link rel="stylesheet" href="/public/assets/css/variables.css">
+    <link rel="stylesheet" href="/public/assets/css/style.css">
+</head>
+<body>
+    <main class="login-container">
+        <header class="brand-header">
+            <h1 class="brand-name">FlyDreamAir</h1>
+            <p class="brand-tagline-main">Premium Lounge Access System</p>
+            <p class="brand-tagline-sub">Experience Excellence in Every Journey</p>
+        </header>
+
+        <nav class="auth-tabs">
+            <button class="tab-btn active">LOGIN</button>
+            <button class="tab-btn">SIGN UP</button>
+        </nav>
+
+        <section class="form-card">
+            <h2 class="form-title">[LOGIN TO YOUR ACCOUNT]</h2>
+            
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label for="email">Gmail / Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your Gmail or email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="login-submit-btn">[LOGIN BUTTON]</button>
+            </form>
+
+            <footer class="form-footer">
+                <a href="#" class="forgot-password">[Forgot Password?]</a>
+            </footer>
+        </section>
+    </main>
+</body>
+</html>

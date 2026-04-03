@@ -1,0 +1,144 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Placeholder until font is decided */
+    /* Using her variable for the full background as per mockup */
+    background-color: var(--primary-color); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Header Section */
+.brand-header {
+    background-color: var(--background-white);
+    padding: 40px;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.brand-name {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.brand-tagline-main {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.brand-tagline-sub {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Tabs */
+.auth-tabs {
+    display: flex;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+}
+
+.tab-btn:not(.active) {
+    background-color: var(--background-white);
+    color: var(--primary-color);
+}
+
+/* Form Card */
+.form-card {
+    background-color: var(--background-white);
+    padding: 40px;
+    margin-top: 0;
+}
+
+.form-title {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    box-sizing: border-box;
+}
+
+/* The "Issue" Button */
+.login-submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #e5e7eb; /* Direct gray from mockup, not in variables */
+    color: #9ca3af; /* Low contrast text */
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: not-allowed;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* Fix 1: High Contrast Button */
+.login-submit-btn {
+    background-color: var(--primary-color); /* Navy Blue */
+    color: var(--background-white); /* White text */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-submit-btn:hover {
+    background-color: var(--secondary-color); /* Turns Red on hover for feedback */
+}
+
+/* Fix 2: Responsive Container */
+.login-container {
+    width: 90%;
+    max-width: 450px; /* Limits width on desktop */
+    margin: auto;     /* Centers it */
+}
