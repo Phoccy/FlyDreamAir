@@ -10,8 +10,21 @@ logs/
 
 # VS Code junk
 .vscode/
+.idea/
+*.swp
+*.log
 
 # Office Temporary Files
 ~$*
 .~lock.*
 *.tmp
+
+# OS/Cloud Sync
+*.sync
+.dropbox
+.oneDrive
+
+# App specific
+/vendor/
+/node_modules/
+.env
