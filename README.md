@@ -32,12 +32,12 @@ Development of a centralized software system to manage global airline lounges. K
 ### **Denisha — UI/UX Designer & Document Controller**
 * **Focus:** Interface Design & Final Assembly.
 * **Key Deliverables:** Figma/Canva Prototypes, UI Screenshots, and Final Document Formatting/Merging.
-* **Primary Directory:** `/docs/design` (New)
+* **Primary Directory:** `/docs/design`
 
 ### **Finley — Risk & Quality Manager (QA)**
 * **Focus:** Mitigation & Compliance.
 * **Key Deliverables:** Risk Register, Cost Estimation (COCOMO), Rubric Cross-referencing, and System Testing.
-* **Primary Directory:** `/docs/testing` (New)
+* **Primary Directory:** `/docs/testing`
 
 ---
 
