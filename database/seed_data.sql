@@ -38,6 +38,9 @@ INSERT INTO `users` (`tier_id`, `first_name`, `last_name`, `email`, `password_ha
 -- STAFF: Admin Architect
 (2, 'Adam', 'Architect', 'admin@flydreamair.com.au', '$2y$10$eImiTXuWVxjW72PDCuyWreQH40M3A98F7Z3F.9z.K7.uA5G1W5u7O', 1, NOW());
 
+-- ELIGIBLE: Gold Member (Joined 2 years ago)
+(2, 'Finley', 'Quality', 'finley@flydreamair.com.au', '$2y$10$eImiTXuWVxjW72PDCuyWreQH40M3A98F7Z3F.9z.K7.uA5G1W5u7O', 0, '2024-01-10 10:00:00'),
+
 -- 4. SEED BOOKINGS (Active and Future)
 INSERT INTO `bookings` (`user_id`, `lounge_id`, `flight_number`, `departure_time`, `amount_paid`, `booking_status`, `qr_code_token`) VALUES 
 -- Harri has a flight in 4 hours
@@ -45,3 +48,6 @@ INSERT INTO `bookings` (`user_id`, `lounge_id`, `flight_number`, `departure_time
 
 -- Anas has a flight in 2 days
 (2, 2, 'FDA202', DATE_ADD(NOW(), INTERVAL 2 DAY), 65.00, 'confirmed', 'QR_HASH_MEL_ANAS_2026');
+
+-- Finley has a flight in 4 days
+(2, 2, 'FDA303', DATE_ADD(NOW(), INTERVAL 4 DAY), 65.00, 'confirmed', 'QR_HASH_MEL_FINLEY_2026');
