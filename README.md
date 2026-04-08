@@ -82,22 +82,22 @@ All "Final Drafts" must be pushed to this repository. Emails are for quick draft
 ### 5. How to Commit (The "Sandbox" Method)
 To protect our working code, **NO ONE** should push directly to the `main` branch. Please follow this "Sandbox" method:
 
-#### A. Create Your Branch (The First Time)
+#### A. Create Your Branch
 Before you start your work, create a "branch" named after your role. This is your safe space to upload files.
 * **Command:** `git checkout -b feature/docs-[your-name]` 
 * **GitHub Desktop:** Click "Current Branch" -> "New Branch" -> Name it `feature/docs-harri` (or your name).
 
 #### B. The 3-Step Upload Process
-1. **Pull:** Always click "Pull" first to make sure you have Adam's latest database updates.
-2. **Commit:** Add your files and write a summary (e.g., `docs: added week 5 minutes`).
-3. **Push:** Click "Push" to send your branch to GitHub.
+1. **Pull:** Always click "Pull" first. `git pull origin main`
+2. **Commit:** Add your files and write a summary.  `git commit -m "docs: added week 5 minutes"`
+3. **Push:** Click "Push" to send your branch to GitHub. `git push`
 
 #### C. Getting Your Work into the Main Folder
 Once your document or design is uploaded to your branch:
 1. Go to our GitHub page.
 2. You will see a yellow bar that says **"Compare & pull request"**. Click it.
 3. Click **"Create pull request"**.
-4. **Adam (Systems Architect)** will review the changes and merge them into the `main` branch. This ensures all formatting and file paths stay consistent.
+4. **Adam** will review the changes and merge them into the `main` branch. This ensures all formatting and file paths stay consistent.
 
 ---
 **⚠️ WARNING:** If you see an option to "Commit directly to the main branch," **DO NOT** select it. Always choose "Create a new branch for this commit."
