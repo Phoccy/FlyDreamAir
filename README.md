@@ -82,17 +82,35 @@ All "Final Drafts" must be pushed to this repository. Emails are for quick draft
 ### 5. How to Commit (The "Sandbox" Method)
 To protect our working code, **NO ONE** should push directly to the `main` branch. Please follow this "Sandbox" method:
 
-#### A. Create Your Branch
+#### A. Start On Main
+Start on `main` and get the latest version.
+1. **Command:** `git checkout main` - Puts you in the main branch
+2. **Command:** `git pull origin main` - Pulls a current version of the repository into your local directory
+
+#### B. Create Your Branch
 Before you start your work, create a "branch" named after your role. This is your safe space to upload files.
 * **Command:** `git checkout -b feature/docs-[your-name]` 
-* **GitHub Desktop:** Click "Current Branch" -> "New Branch" -> Name it `feature/docs-harri` (or your name).
 
-#### B. The 3-Step Upload Process
-1. **Pull:** Always click "Pull" first. `git pull origin main`
-2. **Commit:** Add your files and write a summary.  `git commit -m "docs: added week 5 minutes"`
-3. **Push:** Click "Push" to send your branch to GitHub. `git push`
+#### C. Do Your Work
+Make changes to documents, add documents etc
 
-#### C. Getting Your Work into the Main Folder
+#### D. Stage and Commit
+1. **Command:** `git add .` - This adds your changes
+2. **Command:** `git commit -m "docs: added week 5 minutes"` - This commits your changes
+
+#### E. Push to Server
+Use the -u flag the first time so Git remembers where it goes.
+* **Command:** `git push -u origin feature/docs-[your-name]` 
+
+---
+##### Using GitHub on Desktop?
+1. Switch to `main` and click **Pull origin**
+2. Click **New Branch**, name it `feature/docs-[your-name]`, and ensure it's based on `main`.
+3. Click **Publish Branch**.
+4. Make your changes, write a summary, click **commit**, and then **Push**.
+---
+
+### 6. Getting Your Work into the Main Folder
 Once your document or design is uploaded to your branch:
 1. Go to our GitHub page.
 2. You will see a yellow bar that says **"Compare & pull request"**. Click it.
