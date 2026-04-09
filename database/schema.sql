@@ -57,9 +57,7 @@ CREATE TABLE `users` (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- ---------------------------------------------------------
--- 4. Table: bookings
--- ---------------------------------------------------------
+-- 4. Table: bookings (Fixed for MySQL Determinism)
 CREATE TABLE `bookings` (
   `booking_id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int unsigned NOT NULL,
@@ -68,26 +66,32 @@ CREATE TABLE `bookings` (
   `departure_time` datetime NOT NULL,
   `amount_paid` decimal(10,2) NOT NULL DEFAULT 65.00,
   `booking_status` enum('pending', 'confirmed', 'cancelled', 'completed') DEFAULT 'pending',
-  `payment_id` varchar(100) DEFAULT NULL, -- Stripe PaymentIntent ID
+  `payment_id` varchar(100) DEFAULT NULL, 
   `qr_code_token` varchar(64) NOT NULL UNIQUE,
   `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`booking_id`),
-  -- CONSTRAINT: Cannot book more than 7 days in advance
-  CONSTRAINT `chk_advance_booking` 
-    CHECK (`departure_time` <= DATE_ADD(CURRENT_TIMESTAMP, INTERVAL 7 DAY)),
-  -- CONSTRAINT: Cannot book flights in the past
-  CONSTRAINT `chk_future_flight` 
-    CHECK (`departure_time` > CURRENT_TIMESTAMP),
-  -- CONSTRAINT: Minimum AU$65 entry fee enforcement
-  CONSTRAINT `chk_minimum_payment` 
-    CHECK (`amount_paid` >= 65.00),
-  -- REFERENTIAL INTEGRITY
-  CONSTRAINT `fk_booking_user` 
-    FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) 
-    ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_booking_lounge` 
-    FOREIGN KEY (`lounge_id`) REFERENCES `lounges` (`lounge_id`) 
-    ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT `chk_minimum_payment` CHECK (`amount_paid` >= 65.00),
+  CONSTRAINT `fk_booking_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_booking_lounge` FOREIGN KEY (`lounge_id`) REFERENCES `lounges` (`lounge_id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- TRIGGER: Enforce the 7-day advance and future-flight rules
+DELIMITER //
+CREATE TRIGGER `before_booking_insert`
+BEFORE INSERT ON `bookings`
+FOR EACH ROW
+BEGIN
+    -- Check: Cannot book flights in the past
+    IF NEW.departure_time < NOW() THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Cannot book a flight in the past.';
+    END IF;
+
+    -- Check: Cannot book more than 7 days in advance
+    IF NEW.departure_time > DATE_ADD(NOW(), INTERVAL 7 DAY) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error: Bookings are only permitted within 7 days of departure.';
+    END IF;
+END;
+//
+DELIMITER ;
 
 SET FOREIGN_KEY_CHECKS = 1;

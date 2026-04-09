@@ -1,144 +1,124 @@
-/* Base Styles */
-body {
+
+/* --- CSS Reset & Base --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif; /* Placeholder until font is decided */
-    /* Using her variable for the full background as per mockup */
-    background-color: var(--primary-color); 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header & Nav --- */
+.main-header {
+    background: #ffffff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.main-header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
 }
 
-.login-container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-}
-
-/* Header Section */
-.brand-header {
-    background-color: var(--background-white);
-    padding: 40px;
-    text-align: left;
-    margin-bottom: 0;
-}
-
-.brand-name {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.brand-tagline-main {
-    color: var(--secondary-color);
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-.brand-tagline-sub {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Tabs */
-.auth-tabs {
+.logo {
     display: flex;
-    margin-top:25px;
-    margin-bottom:25px;
+    align-items: center;
+    gap: 8px;
+    cursor: default;
 }
 
-.tab-btn {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+.logo-text {
+    line-height:1.5;
+    color: #003366; /* Airline Blue */
 }
 
-.tab-btn.active {
-    background-color: var(--primary-color);
-    color: var(--background-white);
+.plane-icon {
+    animation: takeoff 1.2s ease-out forwards;
+    opacity: 0;          /* Hidden until animation starts */
 }
 
-.tab-btn:not(.active) {
-    background-color: var(--background-white);
-    color: var(--primary-color);
+@keyframes takeoff {
+    0% {
+        transform: translate(-10px, 10px); /* Start slightly down and left */
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0);       /* End at normal position */
+        opacity: 1;
+    }
 }
 
-/* Form Card */
-.form-card {
-    background-color: var(--background-white);
-    padding: 40px;
-    margin-top: 0;
+.main-nav ul {
+    display: flex;
+    list-style: none;
 }
 
-.form-title {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+.main-nav li {
+    margin-left: 20px;
 }
 
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--primary-color);
-    box-sizing: border-box;
-}
-
-/* The "Issue" Button */
-.login-submit-btn {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background-color: #e5e7eb; /* Direct gray from mockup, not in variables */
-    color: #9ca3af; /* Low contrast text */
-    font-weight: bold;
-    margin-top: 20px;
-    cursor: not-allowed;
-}
-
-.form-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.forgot-password {
-    color: var(--primary-color);
+.main-nav a {
     text-decoration: none;
-    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
-/* Fix 1: High Contrast Button */
-.login-submit-btn {
-    background-color: var(--primary-color); /* Navy Blue */
-    color: var(--background-white); /* White text */
-    cursor: pointer;
-    transition: background 0.3s;
+.main-nav a:hover {
+    color: #003366;
 }
 
-.login-submit-btn:hover {
-    background-color: var(--secondary-color); /* Turns Red on hover for feedback */
+/* --- Buttons --- */
+.btn-primary {
+    background: #003366;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 
-/* Fix 2: Responsive Container */
-.login-container {
-    width: 90%;
-    max-width: 450px; /* Limits width on desktop */
-    margin: auto;     /* Centers it */
+/* --- Content Area --- */
+.content-area {
+    padding: 40px 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* --- Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+    .main-nav {
+        margin-top: 15px;
+    }
+    .main-nav li {
+        margin: 0 10px;
+    }
 }
