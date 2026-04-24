@@ -1,10 +1,5 @@
-# System Requirements Specification: FlyDreamAir LMS
-
 **Project:** Lounge Management System (LMS)  
-**Version:** 2.0 (Consolidated Baseline)  
-**Date:** 2026-04-04  
-**Status:** Approved  
-**Project Role:** Systems Architecture  
+**Version:** 2.0 | **Status:** Approved | **Date:** 2026-04-04
 
 ---
 
