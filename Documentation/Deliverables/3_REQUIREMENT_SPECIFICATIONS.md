@@ -3,7 +3,7 @@
 
 ---
 
-## 1. Functional Requirements (FR)
+## Functional Requirements (FR)
 *These define the specific behaviors and services the system **shall** provide.*
 
 | ID | Requirement Name | Description |
@@ -19,7 +19,7 @@
 
 ---
 
-## 2. Non-Functional Requirements (NFR)
+## Non-Functional Requirements (NFR)
 *These define the quality attributes and operational constraints of the LMS.*
 
 | ID | Requirement Name | Description |
@@ -33,7 +33,7 @@
 
 ---
 
-## 3. Technical Requirements (TR)
+## Technical Requirements (TR)
 *These define the technical standards and environmental constraints for development.*
 
 | ID | Category | Specification |
@@ -48,7 +48,7 @@
 
 ---
 
-## 4. Implementation Notes & Constraints
+## Implementation Notes & Constraints
 * **The "6-Month Rule":** This is a hard validation constraint. The `users` table must include a `created_at` timestamp.
 * **Entry Window:** Access is permitted up to **4 hours** before flight departure.
 * **Architecture:** While initially targeting two locations, the schema must be modular to support a future global rollout.
