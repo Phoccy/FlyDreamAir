@@ -1,4 +1,93 @@
-<section class="hero">
-    <h1>Premium Lounge Access</h1>
-    <p>Experience comfort in SYD and MEL during your 180-day eligibility period.</p>
+<!-- 1. The Sticky Navbar (Hidden by Default) -->
+<nav class="sticky-navbar">
+    <div class="sticky-logo">
+        <h1>
+            <span class="logo-plane-icon">
+                <?= $view->component('Icon', ['name' => 'plane']) ?>
+            </span> 
+            FlyDreamAir
+        </h1>
+    </div>
+
+    <!-- The 3 Menu Buttons (Scaled down for the bar) -->
+    <div class="sticky-actions">
+        <a href="/bookings" class="btn-nav">Book Access</a>
+        <a href="#benefits" class="btn-nav">Benefits</a>
+        <a href="/check-in" class="btn-nav">Check-In</a>
+    </div>
+
+    <!-- The Right-side Login/Status -->
+    <div class="sticky-auth">
+        <a href="/customer/login" class="btn btn-primary btn-sm">Login / Register</a>
+    </div>
+</nav>
+<section class="hero-container">
+    <video autoplay muted loop playsinline class="hero-bg">
+        <source src="/assets/video/202605021248.mp4" type="video/mp4">
+    </video>
+    
+    <div class="hero-content">
+        <span class="eyebrow">Redefining the Layover</span>
+        <h1><span class="logo-plane-icon"><?=  $view->component('Icon', ['name' => 'plane']) ?></span> FlyDreamAir</h1>
+        <p>Escape the terminal noise. Experience curated luxury in our exclusive airport lounges worldwide.</p>
+        <div class="hero-actions">
+            <a href="/bookings" class="btn btn-secondary">Book Your Access</a>
+            <a href="#benefits" class="btn btn-primary">Explore Benefits</a>
+            <a href="/check-in" class="btn btn-blue">Check-In Now</a>
+        </div>
+    </div>
 </section>
+
+<section id="benefits" class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>The FlyDreamAir Standard</h2>
+            <p>Every detail, from the espresso to the upholstery, is engineered for your comfort.</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-card-header">
+                    <?= $view->component('Icon', ['name' => 'wifi']) ?>
+                    <h3>Zero Latency</h3>
+                </div>                
+                <p>Enterprise-grade Wi-Fi for the modern professional.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-header">
+                <?= $view->component('Icon', ['name' => 'coffee']) ?>
+                <h3>Curated Dining</h3>
+                </div>
+                <p>Seasonal menus crafted by world-renowned chefs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-header">
+                <?= $view->component('Icon', ['name' => 'schedule']) ?>
+                <h3>Quiet Zones</h3>
+                </div>
+                <p>Soundproof pods designed for restorative rest.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-header">
+                <?= $view->component('Icon', ['name' => 'membership']) ?>
+                <h3>Priority Entry</h3>
+                </div>
+                <p>Instant access for Platinum and Gold members.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+window.onscroll = function() {
+    const stickyBar = document.querySelector('.sticky-navbar');
+    const heroTitle = document.querySelector('.hero-content h1');
+    
+    // Trigger when the bottom of the H1 passes the top of the screen
+    if (window.scrollY > heroTitle.offsetTop + heroTitle.offsetHeight) {
+        stickyBar.classList.add('is-active');
+    } else {
+        stickyBar.classList.remove('is-active');
+    }
+};    
+</script>

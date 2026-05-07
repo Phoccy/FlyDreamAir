@@ -7,6 +7,8 @@ final class Router
 {
     private array $routes = [];
 
+    public function __construct(protected readonly Registry $registry) {}
+
     public function add(string $method, string $uri, string $action): void
     {
         $this->routes[$method][] = [
@@ -39,7 +41,7 @@ final class Router
 
         if (!class_exists($controller)) die ("Controller not found: {$controller}");
 
-        $instance = new $controller;
+        $instance = new $controller($this->registry);
 
         if (!method_exists($instance, $method)) die ("Method {$method} not found in {$controller}");
 

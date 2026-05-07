@@ -3,27 +3,22 @@ declare(strict_types=1);
 
 namespace Sys\Core;
 
+use Sys\Library\Document;
+use Sys\Library\Response;
+
 abstract class Controller
 {
-    protected View $view;
+    public function __construct(protected readonly Registry $registry) {}
 
-    public function __construct()
+    public function __get(string $key): mixed
     {
-        $this->view = new View();
-        $this->view->set(
-            'head', ['title' => 'Planner']
-        );
+        return $this->registry->$key;
     }
 
-    protected function display(string $page, array $data = []): void
+
+
+    protected function render(string $template, array $data = [], ?string $layout = 'Layouts/Default'): Response
     {
-        foreach ($data as $key => $value) {
-            $this->view->set($key, $value);
-        }
-
-        $content = $this->view->render("pages/{$page}");
-
-        $this->view->set('content', $content);
-        echo $this->view->render('layouts/main');
+        return $this->registry->view->render($template, $data, $layout);
     }
 }

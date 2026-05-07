@@ -1,0 +1,41 @@
+<div class="landing-container">
+    <header class="hero-header">
+        <h1><?=  $page['title'] ?? '' ?></h1>
+        <p><?= $page['subtitle'] ?? '' ?></p>
+    </header>
+    <div class="portal-grid">
+        <section class="portal-card">
+            <div class="icon-circle bg-color-blue">
+                <?= $view->component('Icon', ['name' => 'search']) ?>
+            </div>
+            <h2 class="text-navy">Customer Portal</h2>
+            <p>Access premium airport lounges, manage your bookings, and explore exclusive membership benefits</p>
+            
+            <ul class="feature-list">
+                <li>Book lounge access</li>
+                <li>Manage your reservations</li>
+                <li>Premium membership plans</li>
+                <li>Real-time availability</li>
+            </ul>
+
+            <a href="/customer/login" class="btn btn-gold">Enter Customer Portal</a>
+        </section>
+        <!-- Staff Portal -->
+        <section class="portal-card">
+            <div class="icon-circle bg-color-staff">
+                <?= $view->component('Icon', ['name' => 'groups']) ?>
+            </div>
+            <h2 class="text-blue-staff">Staff Portal</h2>
+            <p>Manage lounge operations, check-in guests, monitor capacity, and handle reservations</p>
+            
+            <ul class="feature-list">
+                <li>Guest check-in/check-out</li>
+                <li>Capacity management</li>
+                <li>Booking verification</li>
+                <li>Operational dashboard</li>
+            </ul>
+
+            <a href="/staff/login" class="btn btn-blue">Enter Staff Portal</a>
+        </section>
+    </div>
+</div>
