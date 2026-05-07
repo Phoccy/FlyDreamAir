@@ -1,7 +1,11 @@
 <?php
 declare(strict_types=1);
 
+use Sys\Core\Registry;
 use Sys\Core\Router;
+use Sys\Core\View;
+use Sys\Library\Document;
+use Sys\Library\Response;
 
 date_default_timezone_set('Australia/Sydney');
 
@@ -40,12 +44,27 @@ spl_autoload_register(function ($class) {
     }
 
 });
+$registry = new Registry();
 
-$router = new Router();
+$document = new Document();
+$registry->add('document', $document);
+
+$view = new View(APP_PATH . DS . 'Views', $document);
+$registry->add('view', $view);
+
+$router = new Router($registry);
 
 $router->add('GET', '/', 'App\Controllers\HomeController@index');
-// $router->add('GET', '/contexts', 'App\Controllers\ContextController@index');
-// $router->add('GET', '/tasks', 'App\Controllers\TaskController@index');
+
+$router->add('GET', '/customer/login', 'App\Controllers\CustomerController@login');
+$router->add('GET', '/customer/dashboard', 'App\Controllers\CustomerController@index');
+
+$router->add('GET', '/staff/login', 'App\Controllers\StaffController@login');
 // $router->add('POST', '/tasks/quick-add', 'App\Controllers\TaskController@quickAdd');
 
-$router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], );
+$response = $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], );
+if ($response instanceof Response) {
+    $response->send();
+} else {
+    echo $response;
+}
